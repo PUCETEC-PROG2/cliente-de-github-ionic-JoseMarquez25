@@ -1,5 +1,6 @@
 import axios from "axios";
 import { RepositoryItem } from "../interfaces/RepositoryItem";
+import { UserInfo } from "../interfaces/UserInfo";
 
 const GITHUB_API_URL = import.meta.env.VITE_GITHUB_API_URL;
 const GITHUB_API_TOKEN = import.meta.env.VITE_GITHUB_API_TOKEN; // sin 'Bearer' aquí
@@ -58,3 +59,18 @@ export const createRepository = async (name: string, description: string): Promi
     console.error("Error creating repository:", error.response?.data || error.message);
   }
 };
+
+export const getUserInfo = async (): Promise<UserInfo | null> => {
+  try {
+    const response = await axios.get(`${GITHUB_API_URL}/user`, {
+      headers: {
+        Authorization: `Bearer ${GITHUB_API_TOKEN}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error recuperado usuario", error);
+    alert("Error recuperando usuario");
+    return null
+  }
+}
