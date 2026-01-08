@@ -1,0 +1,28 @@
+/* Modal styling */
+ion-modal ion-content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
+
+ion-modal h2 {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ion-color-dark);
+}
+
+ion-modal ion-input,
+ion-modal ion-textarea {
+  margin-bottom: 20px;
+}
+
+ion-modal label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--ion-color-dark);
+}
+
